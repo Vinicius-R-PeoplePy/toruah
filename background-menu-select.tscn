@@ -1,0 +1,213 @@
+[gd_scene load_steps=9 format=3 uid="uid://hv878h7yxj6t"]
+
+[ext_resource type="Texture2D" uid="uid://tfn4kg5tx0iu" path="res://corpo.png" id="1_rgavj"]
+[ext_resource type="Texture2D" uid="uid://b5ll4ouuetinb" path="res://cabelo.png" id="2_k220c"]
+[ext_resource type="Texture2D" uid="uid://ybqc7y8qkidt" path="res://olhos.png" id="2_vccco"]
+[ext_resource type="Texture2D" uid="uid://cwjfhf5gbyn06" path="res://blusa.png" id="3_ukxlv"]
+[ext_resource type="Texture2D" uid="uid://bg8v41lg7h4i3" path="res://calca.png" id="5_3wsjh"]
+[ext_resource type="Texture2D" uid="uid://bxwr6ww3cyo3d" path="res://sapato1.png" id="6_l1hyh"]
+[ext_resource type="Texture2D" uid="uid://dijxrqqwe7786" path="res://sapato2.png" id="7_sqbjb"]
+
+[sub_resource type="GDScript" id="GDScript_xo1xj"]
+script/source = "extends ColorRect
+
+@onready var color_picker_button_cor_de_pele = $Node2D/ColorPickerButtonCorDePele
+@onready var cor_de_pele = $Node2D2/CorDePele
+@onready var color_picker_button_cabelo = $Node2D/ColorPickerButtonCabelo
+@onready var cabelo = $Node2D2/cabelo
+@onready var color_picker_button_blusa = $Node2D/ColorPickerButtonBlusa
+@onready var blusa = $Node2D2/blusa
+@onready var color_picker_button_olhos = $Node2D/ColorPickerButtonOlhos
+@onready var olhos = $Node2D2/olhos
+@onready var color_picker_button_calca = $Node2D/ColorPickerButtonCalca
+@onready var calca = $Node2D2/calca
+@onready var color_picker_button_sapatos = $Node2D/ColorPickerButtonSapatos
+@onready var sapatos = [$Node2D2/sapatos1, $Node2D2/sapatos2]
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	'''if color_picker_button_cor_de_pele.is_connected(\"color_changed\", Callable(self, \"_on_color_picker_button_cor_de_pele_color_changed\")):
+		color_picker_button_cor_de_pele.disconnect(\"color_changed\", Callable(self, \"_on_color_picker_button_cor_de_pele_color_changed\"))
+	color_picker_button_cor_de_pele.connect(\"color_changed\", Callable(self, \"_on_color_picker_button_cor_de_pele_color_changed\"))
+	
+	if color_picker_button_cabelo.is_connected(\"color_changed\", Callable(self, \"_on_color_picker_button_cabelo_color_changed\")):
+		color_picker_button_cabelo.disconnect(\"color_changed\", Callable(self, \"_on_color_picker_button_cabelo_color_changed\"))
+	color_picker_button_cabelo.connect(\"color_changed\", Callable(self, \"_on_color_picker_button_cabelo_color_changed\"))'''
+
+func _on_color_picker_button_cor_de_pele_color_changed(color):
+	cor_de_pele.modulate = color
+
+
+func _on_color_picker_button_cabelo_color_changed(color):
+	cabelo.modulate = color
+
+
+func _on_color_picker_button_calca_color_changed(color):
+	calca.modulate = color
+
+
+func _on_color_picker_button_sapatos_color_changed(color):
+	for sapato in sapatos:
+		sapato.modulate = color
+
+
+func _on_color_picker_button_blusa_color_changed(color):
+	blusa.modulate = color
+
+
+func _on_color_picker_button_olhos_color_changed(color):
+	olhos.modulate = color
+"
+
+[node name="background-menu-select" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0.623529, 1)
+script = SubResource("GDScript_xo1xj")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(538, 217)
+zoom = Vector2(2, 2)
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="ColorPickerButtonCabelo" type="ColorPickerButton" parent="Node2D"]
+offset_left = 328.0
+offset_top = 144.0
+offset_right = 368.0
+offset_bottom = 176.0
+
+[node name="Label" type="Label" parent="Node2D/ColorPickerButtonCabelo"]
+layout_mode = 0
+offset_top = -16.0
+offset_right = 43.0
+offset_bottom = 7.0
+theme_override_font_sizes/font_size = 13
+text = "Cabelo"
+
+[node name="ColorPickerButtonCorDePele" type="ColorPickerButton" parent="Node2D"]
+offset_left = 328.0
+offset_top = 193.0
+offset_right = 368.0
+offset_bottom = 225.0
+
+[node name="Label" type="Label" parent="Node2D/ColorPickerButtonCorDePele"]
+layout_mode = 0
+offset_left = 3.00002
+offset_top = -21.0
+offset_right = 43.0
+offset_bottom = 2.0
+text = "skin"
+
+[node name="ColorPickerButtonCalca" type="ColorPickerButton" parent="Node2D"]
+offset_left = 328.0
+offset_top = 245.0
+offset_right = 368.0
+offset_bottom = 277.0
+
+[node name="Label" type="Label" parent="Node2D/ColorPickerButtonCalca"]
+layout_mode = 0
+offset_left = 3.00002
+offset_top = -21.0
+offset_right = 43.0
+offset_bottom = 2.0
+text = "calça"
+
+[node name="ColorPickerButtonSapatos" type="ColorPickerButton" parent="Node2D"]
+offset_left = 328.0
+offset_top = 298.0
+offset_right = 368.0
+offset_bottom = 330.0
+
+[node name="Label" type="Label" parent="Node2D/ColorPickerButtonSapatos"]
+layout_mode = 0
+offset_left = 1.00002
+offset_top = -18.0
+offset_right = 47.0
+offset_bottom = 5.0
+theme_override_font_sizes/font_size = 12
+text = "sapatos"
+
+[node name="ColorPickerButtonBlusa" type="ColorPickerButton" parent="Node2D"]
+offset_left = 373.0
+offset_top = 192.0
+offset_right = 413.0
+offset_bottom = 224.0
+
+[node name="Label" type="Label" parent="Node2D/ColorPickerButtonBlusa"]
+layout_mode = 0
+offset_left = 2.00002
+offset_top = -19.0
+offset_right = 42.0
+offset_bottom = 4.0
+theme_override_font_sizes/font_size = 15
+text = "blusa"
+
+[node name="ColorPickerButtonOlhos" type="ColorPickerButton" parent="Node2D"]
+offset_left = 373.0
+offset_top = 144.0
+offset_right = 413.0
+offset_bottom = 176.0
+
+[node name="Label" type="Label" parent="Node2D/ColorPickerButtonOlhos"]
+layout_mode = 0
+offset_left = 3.00002
+offset_top = -17.0
+offset_right = 43.0
+offset_bottom = 6.0
+theme_override_font_sizes/font_size = 14
+text = "olhos"
+
+[node name="Node2D2" type="Node2D" parent="."]
+
+[node name="cabelo" type="Sprite2D" parent="Node2D2"]
+z_index = 2
+position = Vector2(621, 164.5)
+scale = Vector2(0.590164, 0.335)
+texture = ExtResource("2_k220c")
+
+[node name="olhos" type="Sprite2D" parent="Node2D2"]
+z_index = 2
+position = Vector2(620, 176)
+scale = Vector2(0.235955, 0.33125)
+texture = ExtResource("2_vccco")
+
+[node name="CorDePele" type="Sprite2D" parent="Node2D2"]
+z_index = 1
+position = Vector2(617, 247)
+scale = Vector2(0.419355, 0.263954)
+texture = ExtResource("1_rgavj")
+
+[node name="blusa" type="Sprite2D" parent="Node2D2"]
+z_index = 2
+position = Vector2(617, 236)
+scale = Vector2(0.435393, 0.351563)
+texture = ExtResource("3_ukxlv")
+
+[node name="calca" type="Sprite2D" parent="Node2D2"]
+z_index = 1
+position = Vector2(623, 280.5)
+scale = Vector2(0.365169, 0.328125)
+texture = ExtResource("5_3wsjh")
+
+[node name="sapatos1" type="Sprite2D" parent="Node2D2"]
+z_index = 2
+position = Vector2(588.5, 316.5)
+scale = Vector2(0.373596, 0.328125)
+texture = ExtResource("6_l1hyh")
+
+[node name="sapatos2" type="Sprite2D" parent="Node2D2"]
+z_index = 2
+position = Vector2(659.234, 328.969)
+scale = Vector2(0.39756, 0.287695)
+texture = ExtResource("7_sqbjb")
+
+[connection signal="color_changed" from="Node2D/ColorPickerButtonCabelo" to="." method="_on_color_picker_button_cabelo_color_changed"]
+[connection signal="color_changed" from="Node2D/ColorPickerButtonCorDePele" to="." method="_on_color_picker_button_cor_de_pele_color_changed"]
+[connection signal="color_changed" from="Node2D/ColorPickerButtonCalca" to="." method="_on_color_picker_button_calca_color_changed"]
+[connection signal="color_changed" from="Node2D/ColorPickerButtonSapatos" to="." method="_on_color_picker_button_sapatos_color_changed"]
+[connection signal="color_changed" from="Node2D/ColorPickerButtonBlusa" to="." method="_on_color_picker_button_blusa_color_changed"]
+[connection signal="color_changed" from="Node2D/ColorPickerButtonOlhos" to="." method="_on_color_picker_button_olhos_color_changed"]
