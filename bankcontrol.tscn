@@ -1,0 +1,305 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqkbu13ofhhym"]
+
+[ext_resource type="Script" path="res://bankcontrol.gd" id="1_ahqqd"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchor_right = 0.998
+anchor_bottom = 1.0
+offset_right = 0.303955
+offset_bottom = 4.0
+script = ExtResource("1_ahqqd")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 646.0
+color = Color(0, 0, 1, 1)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.0
+offset_top = -66.0
+offset_right = 118.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="depositar" type="Button" parent="ColorRect/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Depositar"
+
+[node name="sacar" type="Button" parent="ColorRect/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Sacar"
+
+[node name="saldo" type="Button" parent="ColorRect/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Saldo"
+
+[node name="historico" type="Button" parent="ColorRect/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Histórico"
+
+[node name="sair" type="Button" parent="ColorRect/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Sair"
+
+[node name="ColorRectSacar" type="ColorRect" parent="ColorRect"]
+visible = false
+layout_mode = 0
+offset_left = 489.0
+offset_top = 232.0
+offset_right = 699.0
+offset_bottom = 375.0
+color = Color(0.2, 0, 0.541176, 1)
+
+[node name="saque" type="Label" parent="ColorRect/ColorRectSacar"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Quantas melecas você
+quer sacar?"
+
+[node name="LineEdit" type="LineEdit" parent="ColorRect/ColorRectSacar/saque"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 65.0
+offset_right = 191.0
+offset_bottom = 96.0
+placeholder_text = "digite valor melecas"
+
+[node name="voltar" type="Button" parent="ColorRect/ColorRectSacar"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 107.0
+offset_right = 58.0
+offset_bottom = 138.0
+text = "voltar"
+
+[node name="confirma" type="Button" parent="ColorRect/ColorRectSacar"]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 106.0
+offset_right = 197.0
+offset_bottom = 137.0
+text = "confirmar"
+
+[node name="Erro" type="Label" parent="ColorRect/ColorRectSacar"]
+visible = false
+layout_mode = 0
+offset_left = 8.0
+offset_top = 45.0
+offset_right = 185.0
+offset_bottom = 68.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "Erro: saldo insuficiente"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ColorRect/ColorRectSacar"]
+
+[node name="VScrollBar" type="VScrollBar" parent="ColorRect/ColorRectSacar/ScrollContainer"]
+layout_mode = 2
+max_value = 10.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ColorRect/ColorRectSacar/ScrollContainer"]
+layout_mode = 2
+
+[node name="VScrollBar" type="VScrollBar" parent="ColorRect/ColorRectSacar/ScrollContainer/ScrollContainer"]
+layout_mode = 2
+max_value = 10.0
+
+[node name="ColorRectDeposito" type="ColorRect" parent="ColorRect"]
+visible = false
+layout_mode = 0
+offset_left = 496.0
+offset_top = 249.0
+offset_right = 699.0
+offset_bottom = 392.0
+color = Color(0, 0, 0.368627, 1)
+
+[node name="Label" type="Label" parent="ColorRect/ColorRectDeposito"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Quantas melecas você
+quer depositar?"
+
+[node name="LineEdit" type="LineEdit" parent="ColorRect/ColorRectDeposito/Label"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 63.0
+offset_right = 202.0
+offset_bottom = 94.0
+placeholder_text = "   digite valor melecas"
+
+[node name="voltar" type="Button" parent="ColorRect/ColorRectDeposito/Label"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 102.0
+offset_right = 71.0
+offset_bottom = 133.0
+text = "voltar"
+
+[node name="confirmar" type="Button" parent="ColorRect/ColorRectDeposito/Label"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 102.0
+offset_right = 185.0
+offset_bottom = 133.0
+text = "confirmar"
+
+[node name="Erro" type="Label" parent="ColorRect/ColorRectDeposito"]
+visible = false
+layout_mode = 0
+offset_left = 5.0
+offset_top = 42.0
+offset_right = 182.0
+offset_bottom = 65.0
+theme_override_colors/font_color = Color(0.773856, 7.70092e-07, 5.77569e-07, 1)
+text = "Erro: saldo insuficiente"
+
+[node name="ColorRectDepositoConta" type="ColorRect" parent="ColorRect"]
+visible = false
+layout_mode = 0
+offset_left = 490.0
+offset_top = 244.0
+offset_right = 702.0
+offset_bottom = 394.0
+color = Color(0, 0, 0.313726, 1)
+
+[node name="LineEdit" type="LineEdit" parent="ColorRect/ColorRectDepositoConta"]
+layout_mode = 0
+offset_right = 211.0
+offset_bottom = 31.0
+placeholder_text = "digite o n° da conta"
+
+[node name="LineEdit2" type="LineEdit" parent="ColorRect/ColorRectDepositoConta"]
+layout_mode = 0
+offset_top = 34.0
+offset_right = 211.0
+offset_bottom = 65.0
+placeholder_text = "digite o n° da agência"
+
+[node name="voltar" type="Button" parent="ColorRect/ColorRectDepositoConta"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 111.0
+offset_right = 82.0
+offset_bottom = 142.0
+text = "voltar"
+
+[node name="enviar" type="Button" parent="ColorRect/ColorRectDepositoConta"]
+layout_mode = 0
+offset_left = 129.0
+offset_top = 111.0
+offset_right = 186.0
+offset_bottom = 142.0
+text = "enviar"
+
+[node name="ColorRectDepositoFim" type="ColorRect" parent="ColorRect"]
+visible = false
+layout_mode = 0
+offset_left = 489.0
+offset_top = 238.0
+offset_right = 704.0
+offset_bottom = 396.0
+color = Color(0, 0.109804, 0.278431, 1)
+
+[node name="processando" type="Label" parent="ColorRect/ColorRectDepositoFim"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -93.0
+offset_top = -23.0
+offset_right = 93.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Timer" type="Timer" parent="ColorRect/ColorRectDepositoFim"]
+
+[node name="ColorRectHistorico" type="ColorRect" parent="ColorRect"]
+visible = false
+layout_mode = 0
+offset_left = 383.0
+offset_top = 124.0
+offset_right = 813.0
+offset_bottom = 510.0
+color = Color(0, 0.101961, 0.356863, 1)
+
+[node name="historico" type="Label" parent="ColorRect/ColorRectHistorico"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="voltar" type="Button" parent="ColorRect/ColorRectHistorico"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 347.0
+offset_right = 60.0
+offset_bottom = 378.0
+text = "voltar"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(574, 323)
+
+[node name="ColorRectSaldo" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 478.0
+offset_top = 226.0
+offset_right = 723.0
+offset_bottom = 411.0
+color = Color(0, 0, 0.231373, 1)
+
+[node name="saldo" type="Label" parent="ColorRectSaldo"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.5
+offset_top = -11.5
+offset_right = 34.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="voltar" type="Button" parent="ColorRectSaldo"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 151.0
+offset_right = 58.0
+offset_bottom = 182.0
+text = "voltar"
+
+[connection signal="pressed" from="ColorRect/ScrollContainer/VBoxContainer/depositar" to="." method="_on_depositar_pressed"]
+[connection signal="pressed" from="ColorRect/ScrollContainer/VBoxContainer/sacar" to="." method="_on_sacar_pressed"]
+[connection signal="pressed" from="ColorRect/ScrollContainer/VBoxContainer/saldo" to="." method="_on_saldo_pressed"]
+[connection signal="pressed" from="ColorRect/ScrollContainer/VBoxContainer/historico" to="." method="_on_Historico_button_pressed"]
+[connection signal="pressed" from="ColorRect/ScrollContainer/VBoxContainer/sair" to="." method="_on_sair_pressed"]
+[connection signal="pressed" from="ColorRect/ColorRectSacar/voltar" to="." method="_on_Sacarvoltar_pressed"]
+[connection signal="pressed" from="ColorRect/ColorRectSacar/confirma" to="." method="_on_Sacar_confirmar_button_pressed"]
+[connection signal="pressed" from="ColorRect/ColorRectDeposito/Label/voltar" to="." method="_on_Depositovoltar_pressed"]
+[connection signal="pressed" from="ColorRect/ColorRectDeposito/Label/confirmar" to="." method="_on_Depositoconfirmar_pressed"]
+[connection signal="pressed" from="ColorRect/ColorRectDepositoConta/voltar" to="." method="_on_DepositoContavoltar_pressed"]
+[connection signal="pressed" from="ColorRect/ColorRectDepositoConta/enviar" to="." method="_on_DepositoContaenviar_pressed"]
+[connection signal="timeout" from="ColorRect/ColorRectDepositoFim/Timer" to="." method="_on_Timer_timeout"]
+[connection signal="pressed" from="ColorRect/ColorRectHistorico/voltar" to="." method="_on_Historicovoltar_pressed"]
+[connection signal="pressed" from="ColorRectSaldo/voltar" to="." method="_on_Saldovoltar_pressed"]

@@ -59,7 +59,7 @@ func _on_color_picker_button_olhos_color_changed(color):
 	olhos.modulate = color
 "
 
-[node name="background-menu-select" type="ColorRect"]
+[node name="Main" type="ColorRect"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
